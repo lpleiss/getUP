@@ -1,0 +1,10 @@
+WAKE_TIME = 09:00:00
+CUSTOM_TIME = None
+TASKS = ['["[\'squat\'"', '"\'stretch\'"', '"\'calc\'"', '"\'blob\']"]']
+SHUFFLE = True
+ALARM_SOUND = ./media/sounds/alarm.mp3
+WORKOUT_SOUND = ./media/sounds/heartbeat.mp3
+ERROR_SOUND = ./media/sounds/error.mp3
+NUM_SQUAT = 10
+SECS_STRETCH = 10
+DIST_PORT = 4

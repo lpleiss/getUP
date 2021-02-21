@@ -1,0 +1,7 @@
+kivy
+datetime
+pathlib
+RPI.GPIO
+adafruit-blinka
+adafruit-circuitpython-ht16k33
+pytest
