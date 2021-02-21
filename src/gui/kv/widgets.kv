@@ -1,0 +1,317 @@
+<MainClockWidget>:
+    canvas.before:
+        Color:
+            rgba: 1, 1, 1, 1
+        Rectangle:
+            pos: self.pos
+            size: self.size
+    Label:
+        id: time_display
+        font_size: 120
+        font_name: 'BowlbyOneSC-Regular.ttf'
+        text: root.current_time
+        color: (0, 0, 0, 1)
+        pos_hint: {'center_x':.5, 'center_y':.4}
+        size_hint: (1, 1)
+
+<MainOptionButtons>:
+    canvas.before:
+        Color:
+            rgba: 1, 1, 1, 1
+        Rectangle:
+            pos: self.pos
+            size: self.size
+    Button:
+        id: set_time_button
+        pos_hint: {'center_x':.2, 'center_y':.6}
+        size_hint: (.2, .6)
+        background_normal: './media/icons/setTime.png'
+        background_down: './media/icons/setTime_pressed.png'
+        on_press: root.parent.parent.manager.current = 'set_clock'
+    Button:
+        id: lights_button
+        pos_hint: {'center_x':.5, 'center_y':.7}
+        size_hint: (.4, .9)
+        background_normal: './media/icons/setLight.png'
+        background_down: './media/icons/setLight_pressed.png'
+        on_press: self.parent.toggle_light()
+    Button:
+        id: set_alarm_button
+        pos_hint: {'center_x':.8, 'center_y':.6}
+        size_hint: (.2, .6)
+        background_normal: './media/icons/setAlarm.png'
+        background_down: './media/icons/setAlarm_pressed.png'
+        on_press: root.parent.parent.manager.current = 'set_alarm'
+
+<SetClockWidget>:
+    canvas.before:
+        Color:
+            rgba: 1,1,1,1
+        Rectangle:
+            pos: self.pos
+            size: self.size
+    Label:
+        text: root.waketime
+        font_size: 150
+        font_name: 'BowlbyOneSC-Regular.ttf'
+        color: (0,0,0,1)
+        pos_hint: {'center_x':.5, 'center_y':.6}
+    Button:
+        id: moreTenHoursButton
+        color: (0,0,0,1)
+        size_hint: (.1, .1)
+        pos_hint: {'center_x':.32, 'center_y':.8}
+        background_color: (242, 243, 244, 1)
+        on_press: root.moreTenHours()
+        Image:
+            source: "./media/icons/upwardsTriangle.png"
+            center_x: self.parent.center_x
+            center_y: self.parent.center_y
+            size: 50, 50
+    Button:
+        id: moreHoursButton
+        color: (0,0,0,1)
+        size_hint: (.1, .1)
+        pos_hint: {'center_x':.42, 'center_y':.8}
+        background_color: (242, 243, 244, 1)
+        font_size: 50
+        on_press: root.moreHours()
+        Image:
+            source: "./media/icons/upwardsTriangle.png"
+            center_x: self.parent.center_x
+            center_y: self.parent.center_y
+            size: 50, 50
+    Button:
+        id: moreTenMinutesButton
+        color: (0,0,0,1)
+        size_hint: (.1, .1)
+        pos_hint: {'center_x':.58, 'center_y':.8}
+        background_color: (242, 243, 244, 1)
+        font_size: 50
+        on_press: root.moreTenMinutes()
+        Image:
+            source: "./media/icons/upwardsTriangle.png"
+            center_x: self.parent.center_x
+            center_y: self.parent.center_y
+            size: 50, 50
+    Button:
+        id: moreMinutesButton
+        color: (0,0,0,1)
+        size_hint: (.1, .1)
+        pos_hint: {'center_x':.68, 'center_y':.8}
+        background_color: (242, 243, 244, 1)
+        font_size: 50
+        on_press: root.moreMinutes()
+        Image:
+            source: "./media/icons/upwardsTriangle.png"
+            center_x: self.parent.center_x
+            center_y: self.parent.center_y
+            size: 50, 50
+    Button:
+        id: lessTenHoursButton
+        color: (0,0,0,1)
+        size_hint: (.1, .1)
+        pos_hint: {'center_x':.32, 'center_y':.4}
+        background_color: (242, 243, 244, 1)
+        font_size: 50
+        on_press: root.lessTenHours()
+        Image:
+            source: "./media/icons/downwardsTriangle.png"
+            center_x: self.parent.center_x
+            center_y: self.parent.center_y
+            size: 50, 50
+    Button:
+        id: lessHoursButton
+        size_hint: (.1, .1)
+        pos_hint: {'center_x':.42, 'center_y':.4}
+        font_size: 50
+        background_color: (242, 243, 244, 1)
+        on_press: root.lessHours()
+        Image:
+            source: "./media/icons/downwardsTriangle.png"
+            center_x: self.parent.center_x
+            center_y: self.parent.center_y
+            size: 50, 50
+    Button:
+        id: lessTenMinutesButton
+        color: (0,0,0,1)
+        size_hint: (.1, .1)
+        pos_hint: {'center_x':.58, 'center_y':.4}
+        background_color: (242, 243, 244, 1)
+        font_size: 50
+        on_press: root.lessTenMinutes()
+        Image:
+            source: "./media/icons/downwardsTriangle.png"
+            center_x: self.parent.center_x
+            center_y: self.parent.center_y
+            size: 50, 50
+    Button:
+        id: lessMinutesButton
+        color: (0,0,0,1)
+        size_hint: (.1, .1)
+        pos_hint: {'center_x':.68, 'center_y':.4}
+        background_color: (242, 243, 244, 1)
+        font_size: 50
+        on_press: root.lessMinutes()
+        Image:
+            source: "./media/icons/downwardsTriangle.png"
+            center_x: self.parent.center_x
+            center_y: self.parent.center_y
+            size: 50, 50
+    Button:
+        id: confirmButton
+        color: (0,0,0,1)
+        size_hint: (.1, .1)
+        pos_hint: {'center_x':.5, 'center_y':.18}
+        background_color: (242, 243, 244, 1)
+        on_press: root.confirm_and_return()
+        Image:
+            source: "./media/icons/Haken.png"
+            center_x: self.parent.center_x
+            center_y: self.parent.center_y
+            size: (80, 80)
+
+<BlobGameWidget>:
+    canvas.before:
+        Color:
+            rgba: 1,1,1,1
+        Rectangle:
+            pos: self.pos
+            size: self.size
+
+    Button:
+        id: 'instructionButton'
+        text: root.instruction
+        background_color: root.distractorColor
+        size_hint : (1, .2)
+        pos_hint: {'center_x': 0.5, 'center_y': 0.9}
+        font_size : 50
+        halign : "center"
+
+<CalculatorGameWidget>:
+    canvas.before:
+        Color:
+            rgba: 1,1,1,1
+        Rectangle:
+            pos: self.pos
+            size: self.size
+    Label:
+        text: root.calculusTask
+        font_size: 150
+        color: (0,0,0,1)
+        pos_hint: {'center_x':.5, 'center_y':.75}
+    Button:
+        id: possResult1
+        text: str(root.option1)
+        color: (0,0,0,1)
+        size_hint: (.2, .15)
+        pos_hint: {'center_x':.35, 'center_y':.15}
+        background_color: (242, 243, 244, 1)
+        font_size: 75
+        on_press: root.checkResult(root.option1)
+    Button:
+        id: possResult2
+        text: str(root.option2)
+        color: (0,0,0,1)
+        size_hint: (.2, .15)
+        pos_hint: {'center_x':.65, 'center_y':.4}
+        background_color: (242, 243, 244, 1)
+        font_size: 75
+        on_press: root.checkResult(root.option2)
+    Button:
+        id: possResult3
+        text: str(root.option3)
+        color: (0,0,0,1)
+        size_hint: (.2, .15)
+        pos_hint: {'center_x':.65, 'center_y':.15}
+        background_color: (242, 243, 244, 1)
+        font_size: 75
+        on_press: root.checkResult(root.option3)
+    Button:
+        id: possResult4
+        text: str(root.option4)
+        color: (0,0,0,1)
+        size_hint: (.2, .15)
+        pos_hint: {'center_x':.35, 'center_y':.4}
+        background_color: (242, 243, 244, 1)
+        font_size: 75
+        on_press: root.checkResult(root.option4)
+
+<StretchWidget>:
+    canvas.before:
+        Color:
+            rgba: 1,1,1,1
+        Rectangle:
+            pos: self.pos
+            size: self.size
+    Button:
+        id: 'instructionButton'
+        text: "Do the stretch excercise shown on\nyour screen!"
+        background_color: (255, 255, 255, 1)
+        size_hint: (.8, .2)
+        pos_hint: {'center_x': 0.4, 'center_y': 0.9}
+        font_size: 35
+        color: (0, 0, 0, 1)
+        halign: "center"
+    Image:
+        id : 'stretchPic'
+        source: "./media/icons/stretch.png"
+        pos_hint: {'center_x': 0.5, 'center_y': 0.5}
+        size_hint: (.5, .5)
+    Button:
+        id: ''
+        text: root.instruction
+        background_color: (255, 255, 255, 1)
+        size_hint: (1, .2)
+        pos_hint: {'center_x': 0.5, 'center_y': 0.1}
+        font_size: 35
+        color: (0, 0, 0, 1)
+        halign: "center"
+    Button:
+        id: 'repsButton'
+        text: str(root.score)
+        size_hint: (.2, .2)
+        background_color: (255, 255, 255, 1)
+        pos_hint: {'center_x': 0.9, 'center_y': 0.9}
+        font_size: 50
+        color: (0, 0, 0, 1)
+
+<SquatWidget>:
+    canvas.before:
+        Color:
+            rgba: 1,1,1,1
+        Rectangle:
+            pos: self.pos
+            size: self.size
+    Button:
+        id: 'instructionButton'
+        text: "Mimic the position shown on\nthe screen!"
+        background_color: (255, 255, 255, 1)
+        size_hint: (.8, .2)
+        pos_hint: {'center_x': 0.4, 'center_y': 0.9}
+        font_size: 35
+        color: (0, 0, 0, 1)
+        halign: "center"
+    Image:
+        id : 'stretchPic'
+        source: root.img_source
+        pos_hint: {'center_x': 0.5, 'center_y': 0.5}
+        size_hint: (.5, .5)
+    Button:
+        id: 'tipButton'
+        text: "Please make sure that the top of the getUP\nis facing upwards during the exercise."
+        background_color: (255, 255, 255, 1)
+        size_hint: (1, .2)
+        pos_hint: {'center_x': 0.5, 'center_y': 0.1}
+        font_size: 35
+        color: (0, 0, 0, 1)
+        halign: "center"
+    Button:
+        id: 'repsButton'
+        text: str(root.score)
+        size_hint: (.2, .2)
+        background_color: (255, 255, 255, 1)
+        pos_hint: {'center_x': 0.9, 'center_y': 0.9}
+        font_size: 50
+        color: (0, 0, 0, 1)
+

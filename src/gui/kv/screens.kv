@@ -1,0 +1,47 @@
+<MenuScreen>:
+    BoxLayout:
+        orientation: 'vertical'
+        MainClockWidget:
+            id : "mainClock"
+            size_hint_y : .6
+        MainOptionButtons:
+            id : "mainNav"
+            size_hint_y : .4
+
+<SetAlarmScreen>:
+    SetClockWidget:
+        id: 'set_alarm_time'
+
+<SetClockScreen>:
+    SetClockWidget:
+        id: 'set_clock_time'
+
+<WakeScreen>:
+    BoxLayout:
+        canvas.before:
+            Color:
+                rgba: 1, 1, 1, 1
+            Rectangle:
+                pos: self.pos
+                size: self.size
+        Label:
+            font_size: 120
+            font_name: 'BowlbyOneSC-Regular.ttf'
+            text: "Wake Up!"
+            color: (0, 0, 0, 1)
+
+<BlobScreen>:
+    BlobGameWidget:
+        id: "blob"
+
+<CalcScreen>:
+    CalculatorGameWidget:
+        id: "calc"
+
+<SquatScreen>:
+    SquatWidget:
+        id : 'squat'
+
+<StretchScreen>:
+    StretchWidget:
+        id : 'stretch'
